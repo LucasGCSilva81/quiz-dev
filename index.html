@@ -1,11 +1,387 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz | Dev</title>
+    <meta name="description"
+          content="Teste seus conhecimentos em programação com o DevQuiz.">
+    <link rel="stylesheet" href="./style.css">      
+    <title>DevQuiz | Desafio de Programação</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
 </head>
+
 <body>
-    <h1>Quiz Dev</h1>
+    <header class="topbar">
+        <a class="brand" href="#">
+            <span class="brand-icon">&lt;/&gt;</span>
+            <span>Dev<span class="accent">Quiz</span></span>
+        </a>
+        <span class="topbar-label">
+            DESAFIO DE PROGRAMAÇÃO
+        </span>
+    </header>
+
+    <main class="container">
+
+        <section class="intro">
+            <p class="eyebrow">SEU PRÓXIMO NÍVEL COMEÇA AQUI</p>
+            <h1>
+                Desafie sua mente.<br>
+                <span class="gradient-text">Evolua seu código.</span>
+            </h1>
+            <p>
+                Teste seus conhecimentos em desenvolvimento web,
+                descubra seu nível e continue evoluindo como programador.
+            </p>
+            <div class="intro-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Fundamentos</span>
+            </div>
+        </section>
+<section class="quiz-card" aria-label="Quiz de programação">
+            <div class="quiz-header">
+                <div>
+                    <p class="mini-label">MISSÃO ATUAL</p>
+                    <h2>Desafio para Desenvolvedores</h2>
+                </div>
+                <p class="question-counter" id="question-counter">
+                    01 / 08
+                </p>
+            </div>
+            <div class="progress-info">
+                <span id="progress-label">Pergunta 1 de 8</span>
+                <span id="progress-percent">13%</span>
+            </div>
+            <div
+                class="progress-track"
+                id="progress-bar"
+                role="progressbar"
+                aria-label="Progresso do quiz"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="13">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+
+            <form id="quiz-form">
+
+                <section class="question active" data-question="1">
+                    <p class="question-type">01 / MÚLTIPLA ESCOLHA</p>
+                    <h3>
+                        Qual tecnologia é responsável por estruturar uma página web?
+                    </h3>
+                    <p class="question-hint">Escolha uma alternativa.</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="Python">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Python</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="HTML">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">HTML</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="CSS">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">CSS</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="SQL">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">SQL</span>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="question" data-question="2" hidden>
+                    <p class="question-type">02 / RESPOSTA ESCRITA</p>
+                    <h3>
+                        Na URL https://www.google.com, como é chamado google.com?
+                    </h3>
+                    <p class="question-hint">Digite sua resposta.</p>
+                    <label class="field-label" for="q2">Sua resposta</label>
+                    <input
+                        class="text-field"
+                        type="text"
+                        id="q2"
+                        name="q2"
+                        placeholder="Ex.: domínio">
+                </section>
+
+                <section class="question" data-question="3" hidden>
+                    <p class="question-type">03 / SEGURANÇA DIGITAL</p>
+                    <h3>Qual característica contribui para uma senha forte?</h3>
+                    <p class="question-hint">
+                        Não informe uma senha pessoal real.
+                    </p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="curta">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Usar apenas números sequenciais</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="forte">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">
+                                Combinar comprimento e variedade de caracteres
+                            </span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="nome">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">Usar o próprio nome</span>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="question" data-question="4" hidden>
+                    <p class="question-type">04 / CONHECIMENTO HISTÓRICO</p>
+                    <h3>Em que ano foi publicada a versão inicial do HTML?</h3>
+                    <label class="field-label" for="q4">Ano</label>
+                    <input
+                        class="text-field"
+                        type="number"
+                        id="q4"
+                        name="q4"
+                        placeholder="Ex.: 1991">
+                </section>
+
+                <section class="question" data-question="5" hidden>
+                    <p class="question-type">05 / SELEÇÃO MÚLTIPLA</p>
+                    <h3>Quais opções são linguagens de programação?</h3>
+                    <p class="question-hint">
+                        Marque todas as alternativas corretas.
+                    </p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="checkbox" name="q5" value="JavaScript">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">JavaScript</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="q5" value="Java">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Java</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="q5" value="HTML">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">HTML</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="q5" value="CSS">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">CSS</span>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="question" data-question="6" hidden>
+                    <p class="question-type">06 / FUNDAMENTOS WEB</p>
+                    <h3>Qual extensão é normalmente usada em arquivos HTML?</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q6" value=".css">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">.css</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value=".js">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">.js</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value=".html">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">.html</span>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="question" data-question="7" hidden>
+                    <p class="question-type">07 / ATRIBUTOS HTML</p>
+                    <h3>Qual atributo define o tipo de um elemento input?</h3>
+                    <label class="field-label" for="q7">Selecione uma opção</label>
+                    <select class="text-field" id="q7" name="q7">
+                        <option value="">Selecione...</option>
+                        <option value="id">id</option>
+                        <option value="type">type</option>
+                        <option value="placeholder">placeholder</option>
+                    </select>
+                </section>
+
+                <section class="question" data-question="8" hidden>
+                    <p class="question-type">08 / IDENTIFICAÇÃO VISUAL</p>
+                    <h3>Qual linguagem é representada pelo logotipo abaixo?</h3>
+                    <figure class="logo-figure">
+                        <img
+                            src="./assets/z-java-oracle-jpg.webp"
+                            alt="Logotipo da linguagem Java"
+                            width="260">
+                        <figcaption>
+                            Observe a imagem e identifique a linguagem.
+                        </figcaption>
+                    </figure>
+                    <label class="field-label" for="q8">Sua resposta</label>
+                    <input
+                        class="text-field"
+                        type="text"
+                        id="q8"
+                        name="q8"
+                        placeholder="Digite o nome da linguagem">
+                </section>
+                <p
+                    class="feedback-message"
+                    id="feedback-message"
+                    role="status"
+                    aria-live="polite">
+                </p>
+                <div class="quiz-navigation">
+                    <button
+                        class="btn btn-secondary"
+                        type="button"
+                        id="prev-btn"
+                        hidden>
+                        ← Anterior
+                    </button>
+                    <button
+                        class="btn btn-primary"
+                        type="button"
+                        id="next-btn">
+                        Próxima questão →
+                    </button>
+                    <button
+                        class="btn btn-primary"
+                        type="submit"
+                        id="finish-btn"
+                        hidden>
+                        Finalizar desafio
+                    </button>
+                </div>
+            </form>
+
+            <section class="result-panel" id="result-panel" hidden>
+                <div class="result-icon" id="result-icon">🏆</div>
+                <p class="eyebrow">DESAFIO CONCLUÍDO</p>
+                <h2 id="result-title">Muito bem!</h2>
+                <p class="result-description" id="result-description"></p>
+                <div class="score-circle">
+                    <span id="score-number">0</span>
+                    <span class="score-total">de 8 pontos</span>
+                </div>
+                <p id="score-percentage" class="score-percentage"></p>
+                <div class="result-actions">
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="review-btn">
+                        Revisar respostas
+                    </button>
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="restart-btn">
+                        Tentar novamente
+                    </button>
+                </div>
+                <div class="review-list" id="review-list" hidden></div>
+            </section>
+        </section>
+
+        <section class="feedback-card" id="feedback">
+            <p class="eyebrow">SUA OPINIÃO IMPORTA</p>
+            <h2>Ajude a melhorar este projeto.</h2>
+            <p>Conte o que achou da experiência com o DevQuiz.</p>
+            <form id="feedback-form">
+                <div class="feedback-fields">
+                    <div>
+                        <label class="field-label" for="feedback-name">
+                            Seu nome
+                        </label>
+                        <input
+                            class="text-field"
+                            type="text"
+                            id="feedback-name"
+                            name="name"
+                            placeholder="Digite seu nome"
+                            required>
+                    </div>
+                    <div>
+                        <label class="field-label" for="feedback-email">
+                            E-mail (opcional)
+                        </label>
+                        <input
+                            class="text-field"
+                            type="email"
+                            id="feedback-email"
+                            name="email"
+                            placeholder="voce@exemplo.com">
+                    </div>
+                </div>
+                <label class="field-label" for="feedback-comments">
+                    Comentário
+                </label>
+                <textarea
+                    class="text-field"
+                    id="feedback-comments"
+                    name="comments"
+                    rows="4"
+                    placeholder="Digite seu comentário..."
+                    required></textarea>
+                <button class="btn btn-primary" type="submit">
+                    Enviar feedback
+                </button>
+                <p id="feedback-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <details class="answer-details">
+            <summary>Consultar gabarito e explicações</summary>
+            <ol>
+                <li>HTML estrutura o conteúdo da página.</li>
+                <li>Domínio é o nome usado para acessar um site.</li>
+                <li>Uma senha forte deve evitar padrões previsíveis.</li>
+                <li>1991 é o ano associado à publicação inicial do HTML.</li>
+                <li>JavaScript e Java são linguagens de programação.</li>
+                <li>.html é a extensão convencional de documentos HTML.</li>
+                <li>type define o tipo do campo input.</li>
+                <li>Java é a linguagem representada pelo logotipo.</li>
+            </ol>
+        </details>
+    </main>
+
+    <footer class="footer">
+        <a class="brand footer-brand" href="#">
+            <span class="brand-icon">&lt;/&gt;</span>
+            <span>Dev<span class="accent">Quiz</span></span>
+        </a>
+        <p>Desenvolvido por <strong>Lucas G C Silva</strong></p>
+        <p class="footer-note">
+            Projeto de aprendizado em HTML, CSS e JavaScript.
+        </p>
+        <p class="footer-year">
+            © <span id="current-year">2026</span>
+        </p>
+    </footer>
+    <script src="./script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
