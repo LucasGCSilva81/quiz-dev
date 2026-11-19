@@ -1,0 +1,460 @@
+:root {
+    --bg: #080b16;
+    --surface: #11172a;
+    --surface-light: #19223b;
+    --primary: #3984ff;
+    --secondary: #8b5cf6;
+    --text: #f4f7ff;
+    --muted: #a5aec5;
+    --border: rgba(255, 255, 255, 0.1);
+    --success: #35d39a;
+    --danger: #ff647c;
+    --radius: 18px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at top left, rgba(57, 132, 255, 0.15), transparent 38%),
+        radial-gradient(ellipse at bottom right, rgba(139, 92, 246, 0.13), transparent 35%),
+        var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+    outline: 3px solid #8db8ff;
+    outline-offset: 3px;
+}
+
+
+a {
+    color: #8db8ff;
+    text-decoration: none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+header {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+header h1,
+header .logo {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+
+header h1 span,
+header .logo span {
+    color: var(--primary);
+}
+
+
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+
+header nav a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+header nav a:hover {
+    color: var(--text);
+}
+
+main {
+    width: min(920px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 48px 0 64px;
+}
+
+.intro {
+    text-align: center;
+    margin: 0 auto 34px;
+    max-width: 720px;
+    animation: aparecer 0.6s ease both;
+}
+
+.intro h2,
+.intro h1 {
+    margin: 12px 0;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+.intro p {
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.eyebrow,
+.tag,
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid rgba(57, 132, 255, 0.35);
+    border-radius: 999px;
+    background: rgba(57, 132, 255, 0.1);
+    color: #9dc4ff;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.quiz-card,
+.quiz-container,
+#quiz-container {
+    padding: clamp(20px, 4vw, 36px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(17, 23, 42, 0.88);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(14px);
+    animation: aparecer 0.6s ease both;
+}
+
+.quiz-card h2,
+.quiz-container h2,
+.question h2,
+.question h3 {
+    line-height: 1.35;
+}
+
+.progress-info,
+.progress-header,
+.quiz-progress-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+
+.progress-bar,
+#progress-bar {
+    height: 9px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #252d45;
+}
+
+.progress-fill,
+#progress-fill {
+    width: 12.5%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: width 0.4s ease;
+}
+
+.question {
+    margin-top: 28px;
+    animation: aparecer 0.35s ease both;
+}
+
+.question h2,
+.question h3 {
+    margin-top: 0;
+    font-size: clamp(1.2rem, 3vw, 1.55rem);
+}
+
+.question p {
+    color: var(--muted);
+}
+
+.question label {
+    display: block;
+    margin: 12px 0;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.025);
+    color: var(--text);
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.question label:hover {
+    transform: translateY(-2px);
+    border-color: rgba(57, 132, 255, 0.65);
+    background: rgba(57, 132, 255, 0.08);
+}
+
+.question input[type="radio"],
+.question input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: var(--primary);
+}
+
+.question input[type="text"],
+.question input[type="number"],
+.question input[type="email"],
+.question select,
+.question textarea,
+#feedback-form input,
+#feedback-form textarea,
+#feedback-form select {
+    width: 100%;
+    margin-top: 8px;
+    padding: 13px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #0b1020;
+    color: var(--text);
+}
+
+.question input::placeholder,
+#feedback-form input::placeholder,
+#feedback-form textarea::placeholder {
+    color: #77819b;
+}
+
+.question input:focus,
+.question select:focus,
+.question textarea:focus,
+#feedback-form input:focus,
+#feedback-form textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(57, 132, 255, 0.12);
+}
+
+button,
+.btn {
+    padding: 12px 20px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-weight: 700;
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease,
+        background 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+button:active,
+.btn:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+    transform: none;
+}
+
+#next-btn,
+#finish-btn,
+#review-btn,
+button[type="submit"] {
+    background: linear-gradient(100deg, var(--primary), var(--secondary));
+    color: white;
+}
+
+#prev-btn {
+    border-color: var(--border);
+    background: transparent;
+    color: var(--text);
+}
+
+.quiz-navigation,
+.quiz-actions,
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+#result-panel,
+.result-panel {
+    margin-top: 24px;
+    padding: clamp(20px, 4vw, 36px);
+    border: 1px solid rgba(53, 211, 154, 0.3);
+    border-radius: var(--radius);
+    background: rgba(53, 211, 154, 0.06);
+    text-align: center;
+}
+
+#score-number,
+.score-number {
+    color: var(--success);
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+#result-panel p,
+.result-panel p {
+    color: var(--muted);
+}
+
+details {
+    margin-top: 16px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-align: left;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.correct {
+    color: var(--success);
+}
+
+.incorrect {
+    color: var(--danger);
+}
+
+#feedback-form,
+.feedback-form,
+.feedback-section {
+    margin-top: 32px;
+    padding: clamp(20px, 4vw, 30px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(17, 23, 42, 0.75);
+}
+
+#feedback-form label,
+.feedback-form label {
+    display: block;
+    margin-top: 16px;
+    color: var(--muted);
+}
+
+#feedback-form textarea,
+.feedback-form textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+#feedback-message {
+    margin-top: 12px;
+    color: var(--success);
+}
+
+footer {
+    padding: 24px 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.9rem;
+}
+footer p {
+    margin: 6px 0;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Respeita a preferência por menos movimento. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    header {
+        width: calc(100% - 28px);
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    header nav {
+        gap: 12px;
+    }
+    main {
+        width: calc(100% - 24px);
+        padding-top: 32px;
+    }
+    .quiz-card,
+    .quiz-container,
+    #quiz-container {
+        padding: 20px 16px;
+    }
+    .quiz-navigation,
+    .quiz-actions,
+    .navigation-buttons {
+        align-items: stretch;
+        flex-direction: column;
+    }
+    .quiz-navigation button,
+    .quiz-actions button,
+    .navigation-buttons button {
+        width: 100%;
+    }
+}
